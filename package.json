@@ -1,0 +1,24 @@
+{
+  "name": "englishwithmusic",
+  "version": "1.0.0",
+  "description": "Englishwithmusic is an easy and fun way to learn English.",
+  "main": "app.js",
+  "scripts": {
+    "test": "",
+    "start": "node app.js",
+    "watch": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unpin/englishwithmusic.git"
+  },
+  "author": "German Bilalov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unpin/englishwithmusic/issues"
+  },
+  "homepage": "https://github.com/unpin/englishwithmusic#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
