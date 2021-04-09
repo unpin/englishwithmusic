@@ -33,13 +33,18 @@ const userSchema = new mongoose.Schema(
     }
 )
 
+const signOptions = {
+    expiresIn: '7d',
+}
+
 userSchema.methods.generateAuthToken = function () {
     return jwt.sign(
         {
             id: this._id,
             roles: this.roles,
         },
-        process.env.JWT_SECRET
+        process.env.JWT_SECRET,
+        signOptions
     )
 }
 
