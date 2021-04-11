@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
         },
         image: {
             type: String,
-            maxlength: 128,
+            maxlength: 256,
             default: '',
         },
         roles: {
