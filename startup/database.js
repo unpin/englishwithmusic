@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const connString = process.env.MONGODB
-const port = process.env.port
+const port = process.env.PORT
 
 module.exports = function (app) {
     mongoose
