@@ -1,12 +1,8 @@
 const express = require('express')
+const routes = require('./startup/routes')
+const database = require('./startup/database')
 
-const port = process.env.PORT || 3000
 const app = express()
 
-app.use(express.static('public'))
-
-app.get('/', (req, res) => {
-    res.send('Express application')
-})
-
-app.listen(port, () => console.log(`Listening on port ${port}`))
+routes(app)
+database(app)
