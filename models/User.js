@@ -48,6 +48,14 @@ userSchema.methods.generateAuthToken = function () {
     )
 }
 
+userSchema.methods.getPublicProfile = function () {
+    return {
+        email: this.email,
+        name: this.name,
+        image: this.image,
+    }
+}
+
 const User = mongoose.model('User', userSchema)
 
 module.exports = User
