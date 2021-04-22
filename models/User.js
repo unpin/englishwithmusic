@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema(
     {
         email: {
             type: String,
+            set: (email) => email.toLowerCase(),
             required: true,
             unique: true,
         },
