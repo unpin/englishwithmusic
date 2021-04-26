@@ -1,9 +1,9 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const connString = process.env.MONGODB
 const port = process.env.PORT
 
-module.exports = function (app) {
+export default function (app) {
     mongoose
         .connect(connString, {
             useNewUrlParser: true,

@@ -1,6 +1,6 @@
-const express = require('express')
-const routes = require('./startup/routes')
-const database = require('./startup/database')
+import express from 'express'
+import routes from './startup/routes.js'
+import database from './startup/database.js'
 
 const app = express()
 

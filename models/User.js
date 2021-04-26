@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const jwt = require('jsonwebtoken')
+import mongoose from 'mongoose'
+import jwt from 'jsonwebtoken'
 
 const userSchema = new mongoose.Schema(
     {
@@ -60,6 +60,4 @@ userSchema.methods.getPublicProfile = function () {
     }
 }
 
-const User = mongoose.model('User', userSchema)
-
-module.exports = User
+export default mongoose.model('User', userSchema)
