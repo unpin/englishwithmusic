@@ -10,8 +10,7 @@ router.post('/signup', async (req, res) => {
         if (await User.findOne({ email })) {
             return res.status(409).send({ message: 'Email already in use' })
         }
-        const hashedPassword = await bcrypt.hash(password, 10)
-        const user = new User({ name, email, password: hashedPassword })
+        const user = new User({ name, email, password })
         await user.save()
         const publicProfile = user.getPublicProfile()
         publicProfile.token = user.generateAuthToken()

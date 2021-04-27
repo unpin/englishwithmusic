@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 
 const userSchema = new mongoose.Schema(
     {
@@ -12,6 +13,8 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true,
+            minlength: 8,
+            maxlength: 256,
             select: false,
         },
         name: {
@@ -59,5 +62,13 @@ userSchema.methods.getPublicProfile = function () {
         image: this.image,
     }
 }
+
+userSchema.pre('save', function (next) {
+    if (!this.isModified('password')) {
+        next()
+    }
+    this.password = bcrypt.hashSync(this.password, 10)
+    next()
+})
 
 export default mongoose.model('User', userSchema)
