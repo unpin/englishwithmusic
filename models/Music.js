@@ -39,4 +39,7 @@ musicSchema.virtual('singers', {
     justOne: false,
 })
 
+musicSchema.set('toObject', { virtuals: true })
+musicSchema.set('toJSON', { virtuals: true })
+
 export default mongoose.model('Music', musicSchema)
