@@ -20,14 +20,23 @@ const musicSchema = new mongoose.Schema(
             type: [Object],
             default: [],
         },
-        artist: {
-            type: mongoose.Types.ObjectId,
-            ref: 'Artist',
-        },
+        singerId: [
+            {
+                type: mongoose.Types.ObjectId,
+                ref: 'Singer',
+            },
+        ],
     },
     {
         timestamps: true,
     }
 )
+
+musicSchema.virtual('singers', {
+    ref: 'Singer',
+    localField: 'singerId',
+    foreignField: '_id',
+    justOne: false,
+})
 
 export default mongoose.model('Music', musicSchema)
