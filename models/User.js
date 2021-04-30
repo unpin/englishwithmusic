@@ -7,12 +7,12 @@ const userSchema = new mongoose.Schema(
         email: {
             type: String,
             set: (email) => email.toLowerCase(),
-            required: true,
+            required: [true, 'Email is required'],
             unique: true,
         },
         password: {
             type: String,
-            required: true,
+            required: [true, 'Password is required'],
             minlength: 8,
             maxlength: 256,
             select: false,
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             minlength: 1,
             maxlength: 32,
-            required: true,
+            required: [true, 'Name is required'],
         },
         image: {
             type: String,
