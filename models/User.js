@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
+import validator from 'validator'
 
 const userSchema = new mongoose.Schema(
     {
@@ -39,6 +40,10 @@ const userSchema = new mongoose.Schema(
         timestamps: true,
     }
 )
+
+userSchema.path('email').validate(function (v) {
+    return validator.isEmail(v)
+}, 'E_INVALID_EMAIL')
 
 const signOptions = {
     expiresIn: '7d',
