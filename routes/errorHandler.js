@@ -1,3 +1,4 @@
 export default function errorHandler(err, req, res, next) {
-    res.status(500).send({ error: err })
+    console.error(err)
+    res.status(500).send({ error: 'E_INTERNAL_SERVER_ERROR' })
 }
