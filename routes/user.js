@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import bcrypt from 'bcrypt'
 import User from '../models/User.js'
+import userAuth from '../middleware/userAuth.js'
 
 const router = Router()
 
