@@ -45,10 +45,6 @@ userSchema.path('email').validate(function (v) {
     return validator.isEmail(v)
 }, 'E_INVALID_EMAIL')
 
-const signOptions = {
-    expiresIn: '7d',
-}
-
 userSchema.methods.generateAuthToken = function () {
     return jwt.sign(
         {
@@ -58,7 +54,9 @@ userSchema.methods.generateAuthToken = function () {
             roles: this.roles,
         },
         process.env.JWT_SECRET,
-        signOptions
+        {
+            expiresIn: '7d',
+        }
     )
 }
 
